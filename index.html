@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — The Plot Point</title>
+    <meta name="description" content="Privacy Policy for The Plot Point book club app.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #141416;
+            --surface: #1c1c1f;
+            --surface-raised: #242428;
+            --border: #2e2e33;
+            --text-primary: #ececef;
+            --text-secondary: #9a9aa0;
+            --text-tertiary: #6b6b73;
+            --accent: #00897B;
+            --accent-soft: rgba(0, 137, 123, 0.12);
+            --accent-border: rgba(0, 137, 123, 0.25);
+            --warm: #e8c49a;
+            --warm-soft: rgba(232, 196, 154, 0.08);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* ── Subtle grain texture ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* ── Top accent bar ── */
+        .accent-bar {
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #26C6DA, var(--accent));
+            background-size: 200% 100%;
+            animation: shimmer 8s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ── Header ── */
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 2.5rem 1.5rem 2rem;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0;
+        }
+
+        .header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .brand-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .brand-name {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .updated {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Main content ── */
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        .page-title {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 540px;
+            line-height: 1.6;
+        }
+
+        /* ── Table of contents ── */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .toc-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 1rem;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 2rem;
+        }
+
+        .toc li {
+            counter-increment: toc-counter;
+        }
+
+        .toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.2rem 0;
+            transition: color 0.2s;
+        }
+
+        .toc a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .toc a:hover {
+            color: var(--text-primary);
+        }
+
+        /* ── Sections ── */
+        section {
+            margin-bottom: 2.75rem;
+        }
+
+        section h2 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--warm);
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.01em;
+        }
+
+        section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        section ul, section ol {
+            list-style: none;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        section ul li, section ol li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.6rem;
+            padding-left: 1.4rem;
+            position: relative;
+        }
+
+        section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        section ul li strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Nested lists */
+        section ul ul {
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        section ul ul li::before {
+            width: 4px;
+            height: 4px;
+            background: var(--text-tertiary);
+        }
+
+        /* ── Highlight boxes ── */
+        .highlight-box {
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.25rem 0;
+        }
+
+        .highlight-box p {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        .highlight-box.warm {
+            background: var(--warm-soft);
+            border-color: rgba(232, 196, 154, 0.2);
+        }
+
+        /* ── Contact section ── */
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-card h2 {
+            border: none;
+            padding-bottom: 0;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .contact-card p {
+            text-align: center;
+        }
+
+        .contact-email {
+            display: inline-block;
+            margin-top: 0.75rem;
+            padding: 0.6rem 1.5rem;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            border-radius: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
+            background: rgba(0, 137, 123, 0.2);
+            border-color: var(--accent);
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-tertiary);
+            font-size: 0.8rem;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .toc ol {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: 2rem 1.25rem 4rem;
+            }
+
+            .toc {
+                padding: 1.25rem 1.5rem;
+            }
+
+            header {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* ── Entrance animations ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-title { animation: fadeUp 0.6s ease-out both; }
+        .page-subtitle { animation: fadeUp 0.6s ease-out 0.1s both; }
+        .toc { animation: fadeUp 0.6s ease-out 0.2s both; }
+        section { animation: fadeUp 0.5s ease-out 0.3s both; }
+    </style>
+</head>
+<body>
+    <div class="accent-bar"></div>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="brand">
+                <div class="brand-icon">📖</div>
+                <span class="brand-name">The Plot Point</span>
+            </a>
+            <span class="updated">Last updated February 17, 2026</span>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="page-title">Privacy Policy</h1>
+        <p class="page-subtitle">How we handle your data — written plainly, because you deserve clarity about what happens with your information.</p>
+
+        <nav class="toc">
+            <div class="toc-title">Contents</div>
+            <ol>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#info-collect">Information We Collect</a></li>
+                <li><a href="#info-not-collect">What We Don't Collect</a></li>
+                <li><a href="#how-use">How We Use It</a></li>
+                <li><a href="#storage-security">Storage &amp; Security</a></li>
+                <li><a href="#data-sharing">Data Sharing</a></li>
+                <li><a href="#privacy-controls">Your Privacy Controls</a></li>
+                <li><a href="#children">Children's Privacy</a></li>
+                <li><a href="#data-retention">Data Retention</a></li>
+                <li><a href="#international">International Users</a></li>
+                <li><a href="#changes">Changes to This Policy</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ol>
+        </nav>
+
+        <!-- 1 -->
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>The Plot Point ("we," "our," or "us") is a book club management and social reading application. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application.</p>
+            <p>Please read this policy carefully. If you do not agree with its terms, please do not access the application.</p>
+        </section>
+
+        <!-- 2 -->
+        <section id="info-collect">
+            <h2>Information We Collect</h2>
+
+            <h3>Information You Provide Directly</h3>
+            <ul>
+                <li><strong>Account Information:</strong> When you create an account, we collect your email address, first name, and last name. If you sign in through Google or Apple, we receive basic profile information from those providers.</li>
+                <li><strong>Profile Information:</strong> You may optionally set a club nickname or choose to hide your real name from other users.</li>
+                <li><strong>Club Activity:</strong> When you create or join book clubs, we store club membership details, discussion messages, votes, meeting schedules, and reading progress you share within clubs.</li>
+                <li><strong>Library Data:</strong> Books you add to your personal library, reading progress, bookmarks, notes, and reading history.</li>
+                <li><strong>Uploaded Content:</strong> If you upload EPUB files or manga images, we store that content either locally on your device (free tier) or in our cloud storage (premium tier).</li>
+                <li><strong>Reports and Feedback:</strong> If you report another user or content, we collect the details you provide in the report.</li>
+            </ul>
+
+            <h3>Information Collected Automatically</h3>
+            <ul>
+                <li><strong>Device Information:</strong> We collect device type (iOS or Android) for the purpose of delivering push notifications.</li>
+                <li><strong>Push Notification Tokens:</strong> If you enable push notifications, we store your Firebase Cloud Messaging (FCM) token to deliver notifications about club activity.</li>
+                <li><strong>Usage Data:</strong> We track basic reading activity such as last-read dates to calculate reading streaks. This data is stored in your profile and is not shared with third parties.</li>
+            </ul>
+        </section>
+
+        <!-- 3 -->
+        <section id="info-not-collect">
+            <h2>What We Don't Collect</h2>
+            <div class="highlight-box">
+                <p>We believe in collecting only what we need. Here's what we explicitly <em>don't</em> do:</p>
+            </div>
+            <ul>
+                <li>We do not use third-party analytics or tracking SDKs.</li>
+                <li>We do not collect precise location data.</li>
+                <li>We do not collect or store payment information directly — all subscription payments are processed securely through Apple App Store or Google Play Store.</li>
+                <li>We do not sell your personal information to third parties.</li>
+            </ul>
+        </section>
+
+        <!-- 4 -->
+        <section id="how-use">
+            <h2>How We Use Your Information</h2>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Create and manage your account</li>
+                <li>Enable book club features including discussions, voting, meeting scheduling, and reading progress tracking</li>
+                <li>Deliver push notifications about club activity (when enabled by you)</li>
+                <li>Calculate and display reading statistics such as reading streaks and books read</li>
+                <li>Provide cloud storage and synchronization for premium subscribers</li>
+                <li>Enforce our community guidelines through our reporting and moderation systems</li>
+                <li>Improve and maintain the application</li>
+            </ul>
+        </section>
+
+        <!-- 5 -->
+        <section id="storage-security">
+            <h2>Storage &amp; Security</h2>
+            <ul>
+                <li><strong>Backend Services:</strong> We use Supabase (hosted on AWS) for authentication, database, and cloud storage. Supabase implements Row Level Security (RLS) policies to ensure users can only access data they are authorized to see.</li>
+                <li><strong>Local Storage:</strong> Free-tier users' book content and reading data are stored locally on their device using SQLite. This data never leaves your device unless you upgrade to premium cloud sync.</li>
+                <li><strong>Cloud Storage:</strong> Premium subscribers' data is stored securely in Supabase cloud storage with encryption in transit and at rest.</li>
+                <li><strong>Authentication:</strong> Passwords are handled by Supabase Auth and are never stored in plaintext. OAuth sign-in (Google, Apple) delegates authentication to those providers.</li>
+            </ul>
+        </section>
+
+        <!-- 6 -->
+        <section id="data-sharing">
+            <h2>Data Sharing</h2>
+            <p>We do not sell, rent, or trade your personal information. We may share information only in the following circumstances:</p>
+
+            <h3>With Other Users</h3>
+            <p>Your display name (or nickname, if set), reading statistics, and club activity are visible to other members of clubs you join, subject to your privacy settings. If you enable "Hide Real Name," other club members will see your nickname or "Anonymous Member" instead.</p>
+
+            <h3>Service Providers</h3>
+            <p>We use the following third-party services to operate the app:</p>
+            <ul>
+                <li><strong>Supabase</strong> — authentication, database, and storage</li>
+                <li><strong>Firebase Cloud Messaging</strong> — push notification delivery</li>
+                <li><strong>Google Books API</strong> — book search and metadata</li>
+                <li><strong>Amazon Associates</strong> — affiliate links for book purchases (we do not share your data with Amazon; affiliate links are standard web URLs)</li>
+                <li><strong>Resend</strong> — transactional email delivery (password resets, email verification)</li>
+            </ul>
+
+            <h3>Legal Requirements</h3>
+            <p>We may disclose your information if required by law or in response to valid legal process.</p>
+        </section>
+
+        <!-- 7 -->
+        <section id="privacy-controls">
+            <h2>Your Privacy Controls</h2>
+            <div class="highlight-box warm">
+                <p>The Plot Point gives you meaningful control over your data. All of these settings are accessible from the Privacy Settings screen in the app.</p>
+            </div>
+            <ul>
+                <li><strong>Hide Real Name:</strong> Prevents other club members from seeing your real name. You appear as your nickname or "Anonymous Member."</li>
+                <li><strong>Profile Visibility:</strong> Control whether your reading statistics and profile information are visible to other users outside of your clubs.</li>
+                <li><strong>Reading History Visibility:</strong> Control whether your reading activity (books read, currently reading) is visible to other club members.</li>
+                <li><strong>Push Notifications:</strong> You can enable or disable push notifications and customize which types of notifications you receive.</li>
+                <li><strong>Block Users:</strong> You can block other users to prevent them from interacting with you.</li>
+                <li><strong>Account Deletion:</strong> You can request deletion of your account and all associated data.</li>
+            </ul>
+        </section>
+
+        <!-- 8 -->
+        <section id="children">
+            <h2>Children's Privacy</h2>
+            <p>The Plot Point is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us so we can delete that information.</p>
+        </section>
+
+        <!-- 9 -->
+        <section id="data-retention">
+            <h2>Data Retention</h2>
+            <ul>
+                <li>We retain your account data for as long as your account is active.</li>
+                <li>If you delete your account, we will delete or anonymize your personal data within 30 days, except where we are required to retain it for legal or safety purposes (such as moderation records).</li>
+                <li>Discussion messages you have posted in clubs may be retained in anonymized form after account deletion to preserve conversation context for other members.</li>
+            </ul>
+        </section>
+
+        <!-- 10 -->
+        <section id="international">
+            <h2>International Users</h2>
+            <p>The Plot Point is available internationally and supports multiple languages (English, Spanish, French, Japanese, and Korean). Your data is processed and stored in the United States through our service providers. By using the app, you consent to the transfer of your information to the United States.</p>
+        </section>
+
+        <!-- 11 -->
+        <section id="changes">
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy within the app and updating the "Last Updated" date. Your continued use of the app after any changes constitutes your acceptance of the updated policy.</p>
+        </section>
+
+        <!-- 12 -->
+        <section id="contact" class="contact-card">
+            <h2>Contact Us</h2>
+            <p>If you have questions or concerns about this Privacy Policy or our data practices, we'd love to hear from you.</p>
+            <!-- TODO: Replace with your actual email -->
+            <a href="mailto:support@theplpotpoint.app" class="contact-email">support@theplpotpoint.app</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 The Plot Point. This privacy policy is effective as of February 17, 2026.</p>
+    </footer>
+</body>
+</html>
